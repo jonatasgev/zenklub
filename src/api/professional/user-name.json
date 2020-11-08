@@ -1,0 +1,17 @@
+{
+  "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent cursus ipsum ut sem gravida molestie. Pellentesque aliquet et arcu vitae suscipit.\n\nPhasellus tempus, tortor in tincidunt mollis, eros quam sollicitudin lectus, vel scelerisque lorem quam imperdiet quam. Quisque laoreet enim id lectus sodales condimentum.\n\nDonec enim augue, maximus vel purus ac, hendrerit congue velit. Sed tincidunt, tortor vel vehicula scelerisque, lectus tortor viverra tortor, eu vulputate metus velit a arcu. Nunc et faucibus mi.",
+  "name": "Professional Name",
+  "register": "Psicologist",
+  "state": "Lisbon",
+  "evaluation": {
+    "stars": 5,
+    "reviews": 20
+  },
+  "languages": [
+    "Português"
+  ],
+  "session": {
+    "price": "R$ 160",
+    "duration": 50
+  }
+}
