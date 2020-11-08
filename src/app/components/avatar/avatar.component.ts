@@ -6,7 +6,8 @@ import { Component, ElementRef, Input } from '@angular/core';
   styleUrls: ['./avatar.component.scss'],
 })
 export class AvatarComponent {
-  @Input() imageUrl: string = 'assets/avatar.jpg';
+  defaultAvatarURL = 'assets/avatar.jpg';
+  @Input() imageUrl: string;
   @Input() size: number = 180;
 
   getContainerStyle() {

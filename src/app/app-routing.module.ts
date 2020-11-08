@@ -1,18 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageScheduleComponent } from './pages';
+import * as Pages from './pages/pages-routing.module';
 
-const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '/schedule/user-name'
-  },
-  {
-    path: 'schedule/user-name',
-    component: PageScheduleComponent,
-  },
-];
+// Decidi mover as rotas para o pages-routing apenas por organização lógica.
+const routes: Routes = [...Pages.routes];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

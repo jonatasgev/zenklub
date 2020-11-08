@@ -1,0 +1,85 @@
+@import "variables";
+
+.container {
+  .row {
+    display: flex;
+  }
+
+  .avatar {
+    margin-right: 20px;
+  }
+
+  .info {
+    > * + * {
+      margin-top: 6px;
+    }
+
+    .name {
+      font-size: 1.4em;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .register-and-state,
+    .languages {
+      font-size: 0.8em;
+    }
+
+    .register-and-state,
+    .evaluation {
+      > * {
+        margin: 0 6px 0 0;
+      }
+    }
+
+    .register-and-state {
+      .register {
+        color: $brand-color;
+        font-weight: 700;
+      }
+
+      .state {
+        font-weight: 500;
+      }
+    }
+
+    .evaluation {
+      align-items: center;
+
+      .stars {
+        color: #fed500;
+      }
+
+      .reviews {
+        font-size: 0.8em;
+        font-weight: 500;
+      }
+    }
+
+    .languages {
+      font-weight: 600;
+
+      .label {
+        color: gray;
+        margin-right: 6px;
+      }
+    }
+
+    .session {
+      align-items: baseline;
+      font-weight: 700;
+
+      .price {
+        font-size: 1.3em;
+      }
+
+      .bar {
+        margin: 0 3px 0 6px;
+      }
+
+      .duration {
+        font-size: 1em;
+      }
+    }
+  }
+}

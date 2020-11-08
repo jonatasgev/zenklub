@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <zen-avatar class="avatar" [imageUrl]="data?.avatarURL"></zen-avatar>
+
+    <div class="info">
+      <h1 class="name">{{ data?.name || "-" }}</h1>
+      <div class="row register-and-state">
+        <strong class="register">{{
+          data?.register?.toUpperCase() || "-"
+        }}</strong>
+        <span>|</span>
+        <span class="state">{{ data?.state || "-" }}</span>
+      </div>
+
+      <div class="row evaluation">
+        <div class="stars">
+          <ng-container *ngFor="let star of stars">
+            <i *ngIf="star" [ngClass]="star" class="las"></i>
+          </ng-container>
+        </div>
+
+        <span class="reviews">
+          ({{ data?.evaluation?.reviews || "-" }} reviews)
+        </span>
+      </div>
+
+      <div class="row languages">
+        <span class="label">Idioma(s):</span>
+        {{ data?.languages.join(", ") || "-" }}
+      </div>
+
+      <div class="row session">
+        <span class="price">{{ data?.session?.price || "-" }}</span>
+        <span class="bar">/</span>
+        <span class="duration"
+          >{{ data?.session?.duration || "-" }} MINUTES</span
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="about">
+    <ng-container *ngFor="let part of data?.about?.split('\n')">
+      <p *ngIf="part">{{ part }}</p>
+    </ng-container>
+  </div>
+</div>

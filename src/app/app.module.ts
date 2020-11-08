@@ -1,17 +1,13 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AvatarComponent } from './components/shared/avatar/avatar.component';
-import { PageScheduleComponent } from './pages/page-schedule/page-schedule.component';
+import { PagesModule } from './pages/pages.module'; // Decidi criar um módulo específico para páginas e outro para componentes.
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AvatarComponent,
-    PageScheduleComponent,
-  ],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [AppComponent],
+  imports: [AppRoutingModule, BrowserModule, HttpClientModule, PagesModule],
   providers: [],
   bootstrap: [AppComponent],
 })
