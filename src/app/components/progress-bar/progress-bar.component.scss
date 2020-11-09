@@ -1,0 +1,66 @@
+@import "variables";
+
+@keyframes increase {
+  from {
+    left: -5%;
+    width: 5%;
+  }
+  to {
+    left: 130%;
+    width: 100%;
+  }
+}
+@keyframes decrease {
+  from {
+    left: -80%;
+    width: 80%;
+  }
+  to {
+    left: 110%;
+    width: 10%;
+  }
+}
+
+:host {
+  display: block;
+  transition: opacity 0.2s ease;
+  width: 100%;
+
+  &,
+  & .container,
+  & .container .line,
+  & .container .subline {
+    height: 7px;
+  }
+}
+
+.container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &,
+  .line,
+  .subline {
+    border-radius: 7px;
+  }
+
+  .line {
+    background: rgba($brand-color, 0.05);
+    position: absolute;
+    width: 150%;
+  }
+
+  .subline {
+    background: $brand-color;
+    position: absolute;
+
+    &.inc {
+      animation: increase 2s infinite;
+    }
+
+    &.dec {
+      animation: decrease 2s 0.5s infinite;
+    }
+  }
+}
