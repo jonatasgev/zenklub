@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="header">
+    <h1 class="title">{{ title }}</h1>
+    <h2 class="subtitle">{{ subtitle }}</h2>
+  </div>
+
+  <div class="tab-nav">
+    <button
+      class="btn-navigate"
+      [disabled]="pageIndex === 1"
+      (click)="goToPage(pageIndex - 1)"
+    >
+      <i class="fas fa-angle-left"></i>
+    </button>
+
+    <div class="days">
+      <div *ngFor="let day of days" class="day">
+        <span class="week">{{ day.week }}</span>
+        <span class="month">{{ day.month }}</span>
+      </div>
+    </div>
+
+    <button
+      class="btn-navigate"
+      [disabled]="pageIndex === totalPages"
+      (click)="goToPage(pageIndex + 1)"
+    >
+      <i class="fas fa-angle-right"></i>
+    </button>
+  </div>
+
+  <zen-progress-bar
+    class="progress-bar"
+    [ngClass]="{ hide: !loading }"
+  ></zen-progress-bar>
+
+  <div class="schedules">
+    <div *ngIf="!schedules?.length" class="message">
+      <span>Sem Horários</span>
+    </div>
+
+    <div class="column" *ngFor="let schedule of schedules">
+      <ng-container *ngFor="let item of schedule">
+        <button class="btn-schedule" [disabled]="item === '-'">
+          {{ item }}
+        </button>
+      </ng-container>
+    </div>
+  </div>
+</div>
