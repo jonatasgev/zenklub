@@ -15,18 +15,13 @@
       <div class="row evaluation">
         <div class="stars">
           <ng-container *ngFor="let star of stars">
-            <i *ngIf="star" [ngClass]="star" class="las"></i>
+            <i *ngIf="star" [ngClass]="star"></i>
           </ng-container>
         </div>
 
         <span class="reviews">
           ({{ data?.evaluation?.reviews || "-" }} reviews)
         </span>
-      </div>
-
-      <div class="row languages">
-        <span class="label">Idioma(s):</span>
-        {{ data?.languages.join(", ") || "-" }}
       </div>
 
       <div class="row session">

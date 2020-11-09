@@ -1,4 +1,4 @@
-import { IPerson } from '../base';
+import { IPerson } from './base';
 
 export interface IProfessionalInformation extends IPerson {
   about: string;
@@ -6,7 +6,6 @@ export interface IProfessionalInformation extends IPerson {
     stars: number;
     reviews: number;
   };
-  languages: string[];
   register: string;
   session: {
     price: string;
