@@ -1,6 +1,10 @@
 <div class="container">
   <div class="row">
-    <zen-avatar class="avatar" [imageUrl]="data?.avatarURL"></zen-avatar>
+    <zen-avatar
+      [imageUrl]="data?.avatarURL"
+      [size]="size"
+      class="avatar"
+    ></zen-avatar>
 
     <div class="info">
       <h1 class="name">{{ data?.name || "-" }}</h1>

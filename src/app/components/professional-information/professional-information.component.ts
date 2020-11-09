@@ -1,3 +1,4 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { IProfessionalInformation } from 'src/app/interfaces';
 
@@ -9,8 +10,15 @@ import { IProfessionalInformation } from 'src/app/interfaces';
 export class ProfessionalInformationComponent implements OnChanges {
   @Input() data: IProfessionalInformation;
   stars: string[];
+  size: number;
 
-  constructor() {}
+  constructor(private breakpointObserver: BreakpointObserver) {
+    breakpointObserver
+      .observe('(max-width: 767px)')
+      .subscribe((response: BreakpointState) => {
+        this.size = response.matches ? 100 : 180;
+      });
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.data && this.data) {

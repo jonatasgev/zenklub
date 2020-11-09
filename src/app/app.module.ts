@@ -1,3 +1,4 @@
+import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,7 +8,13 @@ import { PagesModule } from './pages/pages.module'; // Decidi criar um módulo e
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [AppRoutingModule, BrowserModule, HttpClientModule, PagesModule],
+  imports: [
+    AppRoutingModule,
+    BrowserModule,
+    HttpClientModule,
+    PagesModule,
+    LayoutModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

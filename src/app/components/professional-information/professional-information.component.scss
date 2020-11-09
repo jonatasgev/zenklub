@@ -1,12 +1,22 @@
 @import "variables";
 
 .container {
-  .row {
+  > .row {
+    align-items: center;
     display: flex;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      text-align: center;
+    }
   }
 
   .avatar {
-    margin-right: 20px;
+    width: auto;
+
+    @media (min-width: 768px) {
+      margin-right: 20px;
+    }
   }
 
   .info {
@@ -74,5 +84,9 @@
         font-size: 0.9em;
       }
     }
+  }
+
+  .about {
+    margin-top: 20px;
   }
 }
