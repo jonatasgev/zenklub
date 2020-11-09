@@ -25,6 +25,7 @@ export class ScheduleComponent implements OnChanges {
 
   days: IScheduleDay[];
   schedules: string[][];
+  allScheduleItems: string[] = [];
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.data && this.data) {
@@ -72,18 +73,18 @@ export class ScheduleComponent implements OnChanges {
   }
 
   getSchedules(data: IScheduleItem[]): string[][] {
-    let all: string[] = [];
-
     const result: string[][] = data.map((item: IScheduleItem): string[] => {
-      all = [...this.normalizeArray(item.schedules, all)];
+      this.allScheduleItems = [
+        ...this.normalizeArray(item.schedules, this.allScheduleItems),
+      ];
       return item.schedules;
     });
 
-    all.sort();
+    this.allScheduleItems.sort();
 
     result.forEach((item: string[], i: number): void => {
-      if (item.length < all.length)
-        result[i] = [...this.normalizeArray(all, item, '-')];
+      if (item.length < this.allScheduleItems.length)
+        result[i] = [...this.normalizeArray(this.allScheduleItems, item, '-')];
     });
 
     return result;
