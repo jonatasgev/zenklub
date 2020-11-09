@@ -13,8 +13,9 @@ export class ProfessionalInformationComponent implements OnChanges {
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.data) {
-      this.stars = this.getStars(this.data.evaluation.stars);
+    if (changes.data && this.data) {
+      if (this.data.evaluation)
+        this.stars = this.getStars(this.data.evaluation.stars);
     }
   }
 

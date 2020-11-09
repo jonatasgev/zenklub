@@ -5,9 +5,7 @@
     <div class="info">
       <h1 class="name">{{ data?.name || "-" }}</h1>
       <div class="row register-and-state">
-        <strong class="register">{{
-          data?.register?.toUpperCase() || "-"
-        }}</strong>
+        <strong class="register">{{ data?.register || "-" }}</strong>
         <span>|</span>
         <span class="state">{{ data?.state || "-" }}</span>
       </div>
