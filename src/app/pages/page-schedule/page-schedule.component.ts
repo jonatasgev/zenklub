@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { IProfessionalInformation } from 'src/app/interfaces';
+import { IProfessionalInformation, ISchedule } from 'src/app/interfaces';
 import { ProfessionalService } from 'src/app/services';
 
 @Component({
@@ -9,7 +9,9 @@ import { ProfessionalService } from 'src/app/services';
   styleUrls: ['./page-schedule.component.scss'],
 })
 export class PageScheduleComponent implements OnInit {
+  loading = false;
   professionalData: IProfessionalInformation;
+  scheduleData: ISchedule;
   userName: string;
 
   constructor(
@@ -22,6 +24,7 @@ export class PageScheduleComponent implements OnInit {
       if (params.userName) {
         this.userName = params.userName;
         this.getProfessionalInformation(params.userName);
+        this.getProfessionalSchedule(params.userName);
       }
     });
   }
@@ -32,5 +35,27 @@ export class PageScheduleComponent implements OnInit {
       .subscribe((response: IProfessionalInformation) => {
         this.professionalData = response;
       });
+  }
+
+  getProfessionalSchedule(userName: string, page: number = 1): void {
+    this.loading = true;
+    this.service.schedule.read(userName, page).subscribe(
+      (response: ISchedule) => {
+        this.scheduleData = response;
+        this.loading = false;
+      },
+      (error: Error) => {
+        this.scheduleData = {
+          ...this.scheduleData,
+          pageIndex: page,
+          data: [],
+        };
+        this.loading = false;
+      }
+    );
+  }
+
+  changeSchedulePage(page: number): void {
+    this.getProfessionalSchedule(this.userName, page);
   }
 }

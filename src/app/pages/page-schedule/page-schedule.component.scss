@@ -1,5 +1,33 @@
 .container {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
   margin: 0 auto;
   max-width: 1200px;
+  min-height: 100vh;
   padding: 20px 0;
+  width: 100%;
+
+  .box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
+
+    .professional-info {
+      @media (min-width: 992px) {
+        margin-right: 40px;
+      }
+    }
+
+    .schedule {
+      @media (max-width: 991px) {
+        margin-top: 40px;
+      }
+    }
+  }
 }

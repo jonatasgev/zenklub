@@ -6,6 +6,12 @@
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "variables";
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body,
 input,
 button,
@@ -17,4 +23,5 @@ pre {
 body {
   background-color: $background-color;
   color: $text-color;
+  padding: 20px;
 }

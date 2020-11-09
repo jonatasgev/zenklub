@@ -1,5 +1,16 @@
 <div class="container">
-  <zen-professional-information
-    [data]="professionalData"
-  ></zen-professional-information>
+  <div class="box">
+    <zen-professional-information
+      [data]="professionalData"
+      class="professional-info"
+    ></zen-professional-information>
+
+    <zen-schedule
+      (changePage)="changeSchedulePage($event)"
+      [data]="scheduleData"
+      [loading]="loading"
+      title="Schedule your session!"
+      class="schedule"
+    ></zen-schedule>
+  </div>
 </div>
